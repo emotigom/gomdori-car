@@ -1,0 +1,19 @@
+# Cloudflare Workers (edge) — template, not deployed yet.
+# cp wrangler.example.toml wrangler.toml && npx wrangler deploy
+name = "gomdori-parts-api"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+
+# Option A: D1 (Cloudflare-only edge database)
+[[d1_databases]]
+binding = "DB"
+database_name = "gomdori-parts"
+database_id = "<fill after `wrangler d1 create gomdori-parts`>"
+
+# Option B: libSQL / Turso (multi-cloud) — remove the D1 block and set secrets:
+#   npx wrangler secret put LIBSQL_URL
+#   npx wrangler secret put LIBSQL_TOKEN
+
+[vars]
+NODE_ID = "edge-cf"
+CORS_ORIGINS = "https://parts.example.com"

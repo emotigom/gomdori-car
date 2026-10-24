@@ -1,0 +1,33 @@
+{
+  "name": "gomdori-dashboard",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @gomdori/web",
+    "dev:api": "npm run dev -w @gomdori/api",
+    "dev:web": "npm run dev -w @gomdori/web",
+    "seed": "node --experimental-strip-types --no-warnings tools/seed/seed.ts",
+    "bench": "node --experimental-strip-types --no-warnings tools/seed/bench.ts",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "node --experimental-strip-types --no-warnings --test \"packages/*/test/*.test.ts\"",
+    "build": "npm run build -w @gomdori/web",
+    "preview": "npm run preview -w @gomdori/web"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@gomdori/core": "*",
+    "@gomdori/sql": "*",
+    "@gomdori/sync": "*",
+    "@gomdori/demo": "*"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}

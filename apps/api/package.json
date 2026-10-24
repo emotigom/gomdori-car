@@ -1,0 +1,19 @@
+{
+  "name": "@gomdori/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-strip-types --no-warnings --watch src/node.ts",
+    "start": "node --experimental-strip-types --no-warnings src/node.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.5",
+    "@gomdori/core": "*",
+    "@gomdori/sql": "*",
+    "@gomdori/sync": "*",
+    "hono": "4.13.13",
+    "@gomdori/demo": "*"
+  }
+}
